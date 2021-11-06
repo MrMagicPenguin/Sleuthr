@@ -1,6 +1,10 @@
 import React from 'react'
-import ReactFlow from 'react-flow-renderer'
+import ReactFlow, { Background } from 'react-flow-renderer'
+import TaskNode from './TaskNode'
 
+const nodeTypes = {
+  taskNode: TaskNode
+}
 const elements = [
   {
     id: '1',
@@ -12,7 +16,8 @@ const elements = [
   {
     id: '2',
     // you can also pass a React component as a label
-    data: { label: <div>Default Node</div> },
+    type: 'taskNode',
+    style: { border: '1px solid #777', padding: 10 },
     position: { x: 100, y: 125 },
   },
   {
@@ -27,8 +32,19 @@ const elements = [
 ];
 
 const Canvas = () => (
-  <div style={{ height: 300 }}>
-    <ReactFlow elements={elements} />
+  <div style={{height: '100vh'}}>
+    <ReactFlow
+      elements={elements}
+      nodeTypes={nodeTypes}>
+      <Background
+        className={"graph"}
+
+        variant="dots"
+        gap={14}
+        size={1}
+        color={"#000"}
+      />
+      </ReactFlow>
   </div>
 );
 
