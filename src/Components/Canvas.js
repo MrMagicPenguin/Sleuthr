@@ -17,7 +17,6 @@ const elements = [
     id: '2',
     // you can also pass a React component as a label
     type: 'taskNode',
-    style: { border: '1px solid #777', padding: 10 },
     position: { x: 100, y: 125 },
   },
   {
@@ -39,8 +38,8 @@ const Canvas = () => (
       <Background
         className={"graph"}
 
-        variant="dots"
-        gap={14}
+        variant="lines"
+        gap={32}
         size={1}
         color={"#000"}
       />
