@@ -17,12 +17,16 @@ const elements = [
     id: '2',
     // you can also pass a React component as a label
     type: 'taskNode',
+    data:{
+      label:"Name",
+      tasks:[{name:"task", complete: false}, {name:"task2", complete: true},{name:"task2", complete: true}]
+      },
     position: { x: 100, y: 125 },
   },
   {
     id: '3',
     type: 'output', // output node
-    data: { label: 'Output Node' },
+    data: { label: 'Output Node'},
     position: { x: 250, y: 250 },
   },
   // animated edge
@@ -37,7 +41,6 @@ const Canvas = () => (
       nodeTypes={nodeTypes}>
       <Background
         className={"graph"}
-
         variant="lines"
         gap={32}
         size={1}

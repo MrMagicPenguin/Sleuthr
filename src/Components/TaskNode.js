@@ -1,29 +1,15 @@
-import React, { useState } from 'react'
+import React  from 'react'
 import { Task } from './Task'
 
-function TaskNode({node}) {
-    const [title, setTitle] = useState('')
-    const [description, setDescription] = useState('')
-
-    // TODO new Tasks
+function TaskNode({data}) {
     return (
         <>
-            <div className="taskNode">
-                <input
-                    type={"text"}
-                    placeholder={"Title"}
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                />
-                <textarea
-                    placeholder={"Description"}
-                    value={description}
-                    onChange={(e => setDescription(e.target.value))}
-                />
-                <Task>
-
-                </Task>
-            </div>
+        <input placeholder={data.label}/>
+          <div className="taskNode">
+              {data.tasks.map((task, index) =>{
+                  return <Task task={task} index={index}/>
+              })}
+          </div>
         </>
 
     )
